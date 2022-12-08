@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+ <!-- Jednoducha kalkulačka v JavaScript bez parametrov-->
+
+
+
+    <h1>Jednoducha kalkulačka</h1>
+   
+    <p id="vysledok"></p>
+          
+ 
+    <input type="number" name="a" size="6" id="a"> 
+    <select name="operators" id="operators">
+        <option value="plus">+</option>
+        <option value="minus">-</option>
+        <option value="nasobenie">*</option>
+        <option value="delenie">/</option>
+    </select>
+    <input type="number" name="b" size="6" id="b"> 
+        <br><br>
+    <button onclick="Vypocett()">Spocitaj</button>
+        
+        
+    <script>
+
+    function Vypocett() // funkcia, ktorá sa volá na operáciu
+    {
+        let vysledok = document.getElementById("vysledok");
+        let a = parseInt(document.getElementById("a").value);    // parse - budeme mat korektne znamienka +
+        let b = parseInt(document.getElementById("b").value);
+
+
+        switch (document.getElementById("operators").value){
+
+            case "plus":
+                vysledky.unshift (a + b);
+            break;
+            case "minus":
+                vysledky.unshift (a - b);
+            break;
+            case "nasobenie":
+                vysledky.unshift (a * b);
+            break;
+            case "delenie":
+                vysledky.unshift (a / b);
+            break;
+
+        }
+
+        if(vysledok.length > 5){         // Zobrazia sa nam iba 5 vysledkov
+            vysledky.pop();
+        }
+
+
+        vysledok.innerText = JSON.stringify("vysledky") //  
+    
+    }
+    </script>
+
+
+    
+</body>
+</html>
+
