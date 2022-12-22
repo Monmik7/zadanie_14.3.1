@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js" integrity="sha512-42PE0rd+wZ2hNXftlM78BSehIGzezNeQuzihiBCvUEB3CVxHvsShF86wBWwQORNxNINlBPuq7rG4WWhNiTVHFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    
+ <!-- Jednoducha kalkulačka v JavaScript bez parametrov , form !!!! -->
+
+
+<form name="Jednoduchá kalkulačka">                       
+    <h1>Jednoducha kalkulačka</h1>
+   
+    <p id="vysledok"></p>
+        <input type="number" name="a" size="6" id="a"> 
+        <select name="operacia" id="operacia">
+          <option value="plus">+</option>
+          <option value="minus">-</option>
+          <option value="krat">*</option>
+          <option value="delenie">/</option>
+        </select>
+        <input type="number" name="b" size="6" id="b"> 
+        <br><br>
+        <button onclick="Vypocett(event)">Spocitaj</button>
+        
+    </form>
+
+   
+          
+    <script>
+        let vysledky = [];
+
+
+    function Vypocett(event) // funkcia, ktorá sa volá na operáciu
+
+    {
+        event.preventDefault()
+        let vysledok = document.getElementById("vysledok");
+        let a = parseInt(document.getElementById("a").value);    // parse - konverzia na ciselnu hodnotu + 
+        let b = parseInt(document.getElementById("b").value);
+        
+
+        console.log("Sme v metóde")
+
+
+        switch (document.getElementById("operacia").value){
+
+            //Metóda unshift()pridá jeden alebo viac prvkov na začiatok poľa a vráti novú dĺžku poľa.
+
+            case "plus":
+                vysledky.unshift(a + b);   // vysledky zobrazi v spravnom poradi
+                console.log(vysledky);
+            break;
+            case "minus":
+                vysledky.unshift(a - b);
+                console.log(vysledky);
+            break;
+            case "krat":
+                vysledky.unshift(a * b);
+                console.log(vysledky);
+            break;
+            case "delenie":
+                vysledky.unshift(a / b);
+                console.log(vysledky);
+            break;
+        
+        }
+    
+        if(vysledky.length > 5){         // Zobrazia sa nam iba 5 vysledkov
+            vysledky.pop();
+        }
+        //vysledok.innerText = JSON.stringify("vysledky") ---- // výmena údajov do/z webového servera
+        
+        document.getElementById("vysledok").innerHTML = vysledky;
+
+       
+    }
+    </script>
+
+
+    
+</body>
+</html>
+
